@@ -1,4 +1,4 @@
-package Postavy;
+package postava;
 
 public class Pratelske {
 }
