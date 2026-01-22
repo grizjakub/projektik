@@ -11,14 +11,7 @@ public class Pohyb extends Command {
     }
 
     @Override
-    public String potvrdit(String command) {
-        //TODO dodelat pohyb
-
+    String jdi(String command) {
         return "";
-    }
-
-    @Override
-    public boolean odejit() {
-        return false;
     }
 }

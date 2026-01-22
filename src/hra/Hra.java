@@ -11,6 +11,7 @@ public class Hra {
     private Hrac hrac;
     private HashMap<String, Command> commands;
 
+
     public void inicializace(){
         commands = new HashMap<>();
         svet = HerniData.nactiHerniDataZRes("/gamedata.json");
@@ -21,7 +22,6 @@ public class Hra {
 
     public void start(){
         inicializace();
-        //zde bude herni smycka
     }
 
 }
