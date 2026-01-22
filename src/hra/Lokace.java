@@ -10,13 +10,16 @@ public class Lokace {
     private ArrayList<String> okolni;
 
 
-
     public String getId() {
         return id;
     }
 
     public String getJmeno() {
         return jmeno;
+    }
+
+    public ArrayList<String> getOkolni(){
+        return okolni;
     }
 
     @Override
