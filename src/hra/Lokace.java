@@ -1,4 +1,4 @@
-package lokace;
+package hra;
 
 public class Lokace {
 }
