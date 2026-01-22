@@ -11,7 +11,9 @@ public class Hra {
     private Hrac hrac;
     private HashMap<String, Command> commands;
 
-
+    /**
+     * Metoda slouzici k nacteni herniho cyklu
+     */
     public void inicializace(){
         commands = new HashMap<>();
         svet = HerniData.nactiHerniDataZRes("/gamedata.json");
