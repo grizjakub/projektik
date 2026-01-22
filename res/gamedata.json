@@ -2,47 +2,46 @@
 {
   "lokace": [
     {
-      "id": "louka1",
-      "jmeno": "Louka",
+      "id": "mytina",
+      "jmeno": "Mytina",
       "popis": "Slouzi pro sber bylin",
-      "okolni": ["louka2", "byl_chatrc", ""]
+      "okolni": ["louka", "byl_chatrc", ""]
     },
     {
       "id": "tabor_s_h",
       "jmeno": "Tabor Sarlatana Huberta",
       "popis": "Prvni setkani s Hubertem",
-      "okolni": ["jeskyne", "uhlirska_osada", ""]
+      "okolni": ["jeskyne", "uhlirska_osada"]
     },
     {
       "id": "uhlirska_osada",
       "jmeno": "Uhlirska Osada",
       "popis": "Zde bude odpocivat ptacek a bude se zne nejvice odehravat",
-      "okolni": ["louka2", "byl_chatrc", "tabor_s_h"]
+      "okolni": ["louka2", "tabor_s_h"]
     },
     {
-      "id": "louka2",
+      "id": "louka",
       "jmeno": "Louka",
       "popis": "Slouzi pro sber bylin",
-      "okolni": ["louka1", "", "uhlirska_osada"]
+      "okolni": ["mytina", "uhlirska_osada"]
     },
     {
       "id": "rozcesti",
       "jmeno": "Rozcesti",
       "popis": "Prvni lokace a první rozhodování o směru.",
-      "okolni": ["uhlirska_osada", "byl_chatrc", ""]
+      "okolni": ["uhlirska_osada", "byl_chatrc"]
     },
     {
       "id": "jeskyne",
       "jmeno": "Jeskyne",
       "popis": "Finalni lokace a misto hlavniho souboje",
-      "okolni": ["tabor_s_h", "", ""]
+      "okolni": ["tabor_s_h"]
     },
-
     {
       "id": "byl_chatrc",
       "jmeno": "Bylinkarska chatrc",
       "popis": "Potkani s Kvetusi",
-      "okolni": ["rozcesti", "louka1", ""]
+      "okolni": ["rozcesti", "mytina"]
     }
   ]
 }
