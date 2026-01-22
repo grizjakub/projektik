@@ -36,13 +36,13 @@ public class HerniData {
      * @param jmeno lokace se najde podle jmena
      * @return prislusna lokace
      */
-    public Lokace najdiLokaci(String id) {
+    public boolean najdiLokaci(String jmeno) {
         for (Lokace l : lokace) {
-            if (l.getId().equals(id)){
-                return l;
+            if (l.getJmeno().equals(jmeno)){
+                return true;
             }
         }
-        throw new IllegalArgumentException("Neexistuje lokace s id: " + id);
+       return false;
     }
 
     public ArrayList<Lokace> getLokace() {
