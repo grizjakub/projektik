@@ -6,7 +6,7 @@ public class Lokace {
 
     private String id;
     private String jmeno;
-    private String popisek;
+    private String popis;
     private ArrayList<String> okolni;
 
 
@@ -24,7 +24,7 @@ public class Lokace {
         return "game.Location{" +
                 "id='" + id + '\'' +
                 ", name='" + jmeno + '\'' +
-                ", description='" + popisek + '\'' +
+                ", description='" + popis + '\'' +
                 ", neighbors=" + okolni +
                 '}';
     }
