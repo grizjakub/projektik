@@ -11,10 +11,7 @@ import java.util.ArrayList;
  * Tato trida slouzi jako sbirka vsech statickych hernich dat, jako predmety, postavy, lokoce, a ukoly.
  */
 public class HerniData {
-
-
-
-    public ArrayList<Lokace> lokace;
+    private ArrayList<Lokace> lokace;
 
 
     /**
@@ -23,27 +20,20 @@ public class HerniData {
      * @return a hra.herniData objekt s vlastnostmi z nacteneho souboru
      */
     public static HerniData nactiHerniDataZRes(String resourcePath) {
-        //Vytvoření objektu pro práci s JSON souborem
         Gson gson = new Gson();
-
-        //Načtení souboru gamedata.json, musí být ve složce res/resources, ta musí být označena jako resource složka projektu
         try (Reader reader = new FileReader(resourcePath)) {
-
-            //Přečte celý JSON a vytvoří instanci hra.HerniData, naplní vlastnosti podle názvů klíčů v JSONU, vrátí se hotová třída game.GameData
             return gson.fromJson(
                     reader,
                     HerniData.class
             );
-
         } catch (Exception e) {
             throw new RuntimeException("Chyba při načítání JSON: " + e.getMessage());
         }
-
     }
 
     /**
      * Najde lokaci podle identifikatoru.
-     * @param id lokace s identifikatorem k nalezeni
+     * @param jmeno lokace se najde podle jmena
      * @return prislusna lokace
      */
     public Lokace najdiLokaci(String id) {
@@ -55,5 +45,7 @@ public class HerniData {
         throw new IllegalArgumentException("Neexistuje lokace s id: " + id);
     }
 
-
+    public ArrayList<Lokace> getLokace() {
+        return lokace;
+    }
 }
