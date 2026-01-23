@@ -35,7 +35,7 @@ public class Hra {
         });
     }
 
-    public void run() {
+    public void bez() {
         while(!opusit){
             System.out.println(hrac.toString());
             System.out.print(">> ");
@@ -51,7 +51,7 @@ public class Hra {
 
     public void start(){
         inicializace();
-        run();
+        bez();
     }
 
 }
