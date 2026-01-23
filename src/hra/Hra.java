@@ -24,10 +24,10 @@ public class Hra {
         commands = new HashMap<>();
         svet = HerniData.nactiHerniDataZRes("res/gamedata.json");
         this.hrac = new Hrac(svet.getLokace().get(4));
-        loadCommands();
+        nactiCommand();
     }
 
-    public void loadCommands(){
+    public void nactiCommand(){
         commands.put("pohyb", () ->{
             System.out.println("Napiš kam chceš jít: ");
             String vstup = sc.nextLine();
