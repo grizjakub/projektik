@@ -29,7 +29,7 @@ public class Pohyb extends Command {
     }
 
     @Override
-    public boolean exit() {
+    public boolean odejit() {
         return false;
     }
 }

@@ -14,6 +14,6 @@ public abstract class Command {
 
         // Metoda na otevreni nabidkzy cesty.
     public abstract String execute();
-    public abstract boolean exit();
+    public abstract boolean odejit();
 
 }

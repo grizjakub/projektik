@@ -43,7 +43,7 @@ public class Hra {
             if (commands.containsKey(prikaz)) {
                 Command cmd = commands.get(prikaz).get();
                 System.out.println(cmd.execute());
-                this.opusit = cmd.exit();
+                this.opusit = cmd.odejit();
             }else
                 System.out.println("Příkaz " + prikaz + " neexistuje");
         }
