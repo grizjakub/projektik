@@ -43,5 +43,26 @@
       "popis": "Potkani s Kvetusi",
       "okolni": ["rozcesti", "mytina"]
     }
+  ],
+  "predmedy": [
+    {
+      "id": "kosik_bylin",
+      "jmeno": "Kosik Bylin",
+      "lokace": null,
+      "postava": "kvetuse"
+    },
+    {
+      "id": "",
+      "jmeno": " ",
+      "lokace": "",
+      "postava": ""
+    }
+  ],
+  "postavy_kladne": [
+    {
+      "id": "kvetuse",
+      "jmeno": "Kvetuse",
+      "lokace": ""
+    }
   ]
 }
