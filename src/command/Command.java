@@ -1,3 +1,7 @@
+/**
+ * Abstraktni trida command slouzi k zapsani vsech abstraktnich comandu/prikazu v metodach,
+ * ktere jsou dale specifikovany v jinych tridach.
+ */
 package command;
 
 import hra.HerniData;
@@ -12,7 +16,7 @@ public abstract class Command {
         this.herniData = herniData;
     }
 
-        // Metoda na otevreni nabidkzy cesty.
+        // Metoda na otevreni nabidky cesty.
     public abstract String execute();
     public abstract boolean odejit();
 

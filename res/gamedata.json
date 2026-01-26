@@ -46,15 +46,21 @@
   ],
   "predmedy": [
     {
-      "id": "kosik_bylin",
-      "jmeno": "Kosik Bylin",
+      "id": "kosik",
+      "jmeno": "Kosik",
       "lokace": null,
       "postava": "kvetuse"
     },
     {
-      "id": "",
-      "jmeno": " ",
-      "lokace": "",
+      "id": "kosik_bylin",
+      "jmeno": "Kosik Bylin",
+      "lokace": null,
+      "postava": null
+    },
+    {
+      "id": "pyrit",
+      "jmeno": "Pyrit",
+      "lokace": null,
       "postava": ""
     }
   ],
@@ -62,7 +68,12 @@
     {
       "id": "kvetuse",
       "jmeno": "Kvetuse",
-      "lokace": ""
+      "lokace": "byl_chatrc"
+    },
+    {
+      "id": "hubert",
+      "jmeno": "Sarlatan Hubert",
+      "lokace": "tabor_s_h"
     }
   ]
 }

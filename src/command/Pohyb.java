@@ -1,3 +1,6 @@
+/**
+ * Trida Pohyb, ktera dedi tridu command
+ */
 package command;
 
 import hra.HerniData;
@@ -11,6 +14,11 @@ public class Pohyb extends Command {
         this.jmeno = id;
     }
 
+    /**
+     * Metoda na urceni urceni nabidky cestovani a informovani o aktualni lokalite.
+     * @return aktualni mistnost, jeji popis a sousedni lokace,
+     * v pripade, ze lokalita neni v dosahu nebo neexistuje tak o tom informuje.
+     */
     @Override
     public String execute() {
         if (herniData.najdiLokaci(jmeno)) {
