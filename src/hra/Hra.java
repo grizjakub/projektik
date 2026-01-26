@@ -16,7 +16,7 @@ public class Hra {
     private boolean opusit;
 
     /**
-     * Metoda slouzici k nacteni herniho cyklu
+     * Metoda slouzici k nacteni herniho cyklu.
      */
     public void inicializace(){
         this.opusit = false;
@@ -27,6 +27,10 @@ public class Hra {
         nactiCommand();
     }
 
+    /**
+     * Metoda slouzici k nacteni commandu pouzitych uzivatelem.
+     * @return new Pohyb s prislusnymi vlastnostmi.
+     */
     public void nactiCommand(){
         commands.put("pohyb", () ->{
             System.out.println("Napiš kam chceš jít: ");
@@ -35,6 +39,9 @@ public class Hra {
         });
     }
 
+    /**
+     * Metoda slouzici k precteni a rozpoznani prikazu.
+     */
     public void bez() {
         while(!opusit){
             System.out.println(hrac.toString());
@@ -49,6 +56,9 @@ public class Hra {
         }
     }
 
+    /**
+     * Metoda slouzici k spusteni herniho cyklu.
+     */
     public void start(){
         inicializace();
         bez();

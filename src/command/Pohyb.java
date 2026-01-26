@@ -1,10 +1,11 @@
-/**
- * Trida Pohyb, ktera dedi tridu command
- */
 package command;
 
 import hra.HerniData;
 import hra.Hrac;
+
+/**
+ * Trida Pohyb, ktera dedi tridu command a urcuje mechaniku pohybu.
+ */
 
 public class Pohyb extends Command {
     private String jmeno;

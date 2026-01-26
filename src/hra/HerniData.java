@@ -17,7 +17,7 @@ public class HerniData {
     /**
      * Nacte data z JSON souboru.
      * @param resourcePath cesta k JSON souboru
-     * @return a hra.herniData objekt s vlastnostmi z nacteneho souboru
+     * @return hra.herniData objekt s vlastnostmi z nacteneho souboru
      */
     public static HerniData nactiHerniDataZRes(String resourcePath) {
         Gson gson = new Gson();
