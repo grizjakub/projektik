@@ -1,5 +1,8 @@
 package hra;
 
+/**
+ * Trida slouzici k pridani vlastnosti hracovy.
+ */
 public class Hrac {
 
     private Lokace aktualniLokace;

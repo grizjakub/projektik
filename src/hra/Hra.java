@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.function.Supplier;
 
+/**
+ * Klicova trida na ktere se vytvori hracske prostredi a spousti se pres ni zakladni metody.
+ */
 public class Hra {
 
     private HerniData svet;

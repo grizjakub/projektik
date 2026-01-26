@@ -1,5 +1,8 @@
 package hra;
 
+/**
+ * Trida predmet slouzi k nastaveni zakladnich vlastnosti predmetu.
+ */
 public class Predmet {
 
     private String id;

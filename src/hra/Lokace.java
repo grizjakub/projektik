@@ -2,6 +2,9 @@ package hra;
 
 import java.util.ArrayList;
 
+/**
+ * Trida slouzisi k nastaveni zakladnich vlastnosti lokalit.
+ */
 public class Lokace {
 
     private String id;
