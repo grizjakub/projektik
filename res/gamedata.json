@@ -44,12 +44,12 @@
       "okolni": ["rozcesti", "mytina"]
     }
   ],
-  "predmedy": [
+  "predmety": [
     {
       "id": "kosik",
       "jmeno": "Kosik",
-      "lokace": null,
-      "postava": "kvetuse"
+      "lokace": "byl_chatrc",
+      "postava": null
     },
     {
       "id": "kosik_bylin",
