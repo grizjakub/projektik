@@ -27,7 +27,7 @@ public class Pohyb extends Command {
                 if (herniData.getLokace().get(i).getJmeno().equalsIgnoreCase(jmeno)) {
                     if (hrac.getAktualniLokace().getOkolni().contains(herniData.getLokace().get(i).getId())) {
                         hrac.setAktualniLokace(herniData.getLokace().get(i));
-                        return "Aktualni mistnost " + hrac.getAktualniLokace();
+                        return "Aktualni mistnost " + jmeno;
                     }
                 }
             }

@@ -15,9 +15,9 @@
     },
     {
       "id": "uhlirska_osada",
-      "jmeno": "Uhlirska Osada",
+      "jmeno": "Uhlirska osada",
       "popis": "Zde bude odpocivat ptacek a bude se zne nejvice odehravat",
-      "okolni": ["louka2", "tabor_s_h"]
+      "okolni": ["louka", "tabor_s_h", "rozcesti"]
     },
     {
       "id": "louka",
@@ -60,7 +60,7 @@
     {
       "id": "pyrit",
       "jmeno": "Pyrit",
-      "lokace": null,
+      "lokace": "uhlirska_osada",
       "postava": ""
     }
   ],

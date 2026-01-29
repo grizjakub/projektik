@@ -1,7 +1,9 @@
 package hra;
 
 import command.Command;
+import command.Inventar;
 import command.Pohyb;
+import command.Sebrat;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -39,6 +41,14 @@ public class Hra {
             System.out.println("Napiš kam chceš jít: ");
             String vstup = sc.nextLine();
             return new Pohyb(hrac, vstup, svet);
+        });
+        commands.put("sebrat", () -> {
+            System.out.println("Co chceš sebrat? ");
+            String vstup = sc.nextLine();
+            return new Sebrat(hrac, vstup, svet);
+        });
+        commands.put("inventar", () -> {
+           return new Inventar(hrac, svet);
         });
     }
 
