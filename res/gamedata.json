@@ -64,23 +64,18 @@
       "postava": ""
     }
   ],
-  "postavy_kladne": [
+  "postavy": [
     {
       "id": "kvetuse",
-      "jmeno": "Kvetuse",
-      "lokace": "byl_chatrc"
+      "jmeno": "Kořenářka Květuše",
+      "lokace": "byl_chatrc",
+      "monolog": "Ahoj! Pokud hledáš bylinky, podívej se do lesa. Ale pozor na vlky."
     },
     {
       "id": "hubert",
-      "jmeno": "Sarlatan Hubert",
-      "lokace": "tabor_s_h"
-    }
-  ],
-  "dialogy": [
-    {
-      "Jindra": [
-
-      ]
+      "jmeno": "Šarlatán Hubert",
+      "lokace": "tabor_s_h",
+      "monolog": "Mám elixíry na všechno! I na zlomené srdce, ale ty jsou drahé."
     }
   ]
 }

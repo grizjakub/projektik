@@ -1,9 +1,6 @@
 package hra;
 
-import command.Command;
-import command.Inventar;
-import command.Pohyb;
-import command.Sebrat;
+import command.*;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -49,6 +46,11 @@ public class Hra {
         });
         commands.put("inventar", () -> {
            return new Inventar(hrac, svet);
+        });
+        commands.put("mluvit", () -> {
+            System.out.println("S kým chceš mluvit?");
+            String vstup = sc.nextLine();
+            return new Mluvit(hrac, vstup, svet);
         });
     }
 

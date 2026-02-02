@@ -6,14 +6,11 @@ import java.io.Reader;
 import java.util.ArrayList;
 
 public class HerniData {
-    // Gson sem automaticky načte seznam lokací
     private ArrayList<Lokace> lokace;
-    // Gson sem automaticky načte seznam předmětů (nově přidáno)
     private ArrayList<Predmet> predmety;
+    // Přidáme seznam pro postavy (název proměnné musí sedět s JSON klíčem!)
+    private ArrayList<Postava> postavy;
 
-    /**
-     * Načte data, vytvoří objekty a ROZMÍSTÍ PŘEDMĚTY DO LOKACÍ.
-     */
     public static HerniData nactiHerniDataZRes(String resourcePath) {
         Gson gson = new Gson();
         try (Reader reader = new FileReader(resourcePath)) {
@@ -22,14 +19,27 @@ public class HerniData {
             HerniData data = gson.fromJson(reader, HerniData.class);
 
             // 2. Teď musíme předměty fyzicky vložit do lokací
-            if (data.predmety != null && data.lokace != null) {
-                data.inicializujPredmety();
-            }
+            if (data.predmety != null) data.inicializujPredmety();
+
+            if (data.postavy != null) data.inicializujPostavy();
 
             return data;
 
         } catch (Exception e) {
             throw new RuntimeException("Chyba při načítání JSON: " + e.getMessage());
+        }
+    }
+
+    // Nová metoda pro rozřazení postav
+    private void inicializujPostavy() {
+        for (Postava p : postavy) {
+            String kamPatriId = p.getLokaceId();
+            if (kamPatriId != null) {
+                Lokace lokace = najdiLokaciPodleId(kamPatriId);
+                if (lokace != null) {
+                    lokace.pridejPostavu(p);
+                }
+            }
         }
     }
 

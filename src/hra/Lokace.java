@@ -27,20 +27,36 @@ public class Lokace {
         return null; // Předmět tu není
     }
 
+    // Seznam postav
+    private java.util.ArrayList<Postava> postavy = new java.util.ArrayList<>();
+
+    // Metoda pro přidání postavy (pro načítání hry)
+    public void pridejPostavu(Postava p) {
+        postavy.add(p);
+    }
+
+    // Metoda pro nalezení postavy podle jména (pro příkaz mluvit)
+    public Postava najdiPostavu(String jmeno) {
+        for (Postava p : postavy) {
+            if (p.getJmeno().equalsIgnoreCase(jmeno) || p.getId().equalsIgnoreCase(jmeno)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
     // Uprav metodu toString(), aby vypisovala i předměty v místnosti
     @Override
     public String toString() {
-        // Tady použijeme přímo proměnnou 'popis' (bez getPopis()), protože jsme uvnitř třídy
-        String vypis = "Lokace: " + id + "\nPopis: " + popis + "\nOkolni lokace" + okolni;
+        String vypis = "Lokace: " + id + "\nPopis: " + popis;
 
-        // Pokud máme předměty (tento list jsme vytvořili v předchozím kroku)
-        if (!predmety.isEmpty()) {
-            vypis += "\nVidíš zde předměty: " + predmety.toString();
-        }
+        // Výpis předmětů
+        if (!predmety.isEmpty()) vypis += "\nPředměty: " + predmety;
 
-        // Výpis východů (sousedů)
-        vypis += "\nVýchody: " + okolni.toString();
+        // Výpis postav
+        if (!postavy.isEmpty()) vypis += "\nPostavy: " + postavy;
 
+        vypis += "\nVýchody: " + okolni;
         return vypis;
     }
 
