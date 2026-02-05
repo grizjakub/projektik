@@ -5,49 +5,76 @@ public class Postava {
     private String jmeno;
     private String lokace;
 
-    // Dialogy - zadání úkolu
-    private String dialog_hrac; // Co říká Jindra
-    private String monolog;     // Co odpoví NPC
+    // Dialogy
+    private String dialog_hrac;
+    private String monolog;
 
-    // Quest a splnění
+    // Quest
     private String id_quest_predmetu;
-    private String dialog_hrac_splneno; // Co říká Jindra při odevzdání
-    private String monolog_splneno;     // Co odpoví NPC při odevzdání
+    private String dialog_hrac_splneno;
+    private String monolog_splneno;
 
-    // Gettery
+    // Odměna
+    private String id_odmena;
+    private String nazev_odmeny;
+
+    // Speciální vlastnost pro konec hry
+    private boolean konec_hry = false;
+
+    // Stav splnění
+    private boolean questSplnen = false;
+
     public String getId() { return id; }
     public String getJmeno() { return jmeno; }
     public String getLokaceId() { return lokace; }
+    public boolean isKonecHry() { return konec_hry; }
+    public boolean isQuestSplnen() { return questSplnen; }
 
-    /**
-     * Hlavní metoda pro dialog.
-     * Vrátí formátovaný text:
-     * Jindra: [Otázka]
-     * [Jméno NPC]: [Odpověď]
-     */
     public String mluvit(Hrac hrac) {
         StringBuilder sb = new StringBuilder();
 
-        // 1. Kontrola, zda postava vůbec něco chce (má quest?)
+        if (questSplnen) {
+            sb.append(jmeno).append(": \"Už máme hotovo, ne?\"");
+            return sb.toString();
+        }
+
         if (id_quest_predmetu == null || id_quest_predmetu.isEmpty()) {
-            // Nemá quest -> jen pokec
             sb.append("Jindra: ").append(dialog_hrac).append("\n");
             sb.append(jmeno).append(": ").append(monolog);
             return sb.toString();
         }
 
-        // 2. Kontrola, zda má hráč předmět v batohu
-        boolean maPredmet = hrac.maVInventari(id_quest_predmetu);
+        String[] pozadovanePredmety = id_quest_predmetu.split(",");
+        boolean maVsechno = true;
 
-        if (maPredmet) {
-            // MÁ PŘEDMĚT -> SPLNĚNO
-            // Můžeme předmět odebrat, aby úkol nešel dělat donekonečna
-            hrac.odeberZInventarePodleId(id_quest_predmetu);
+        for (String idPredmetu : pozadovanePredmety) {
+            if (!hrac.maVInventari(idPredmetu.trim())) {
+                maVsechno = false;
+                break;
+            }
+        }
+
+        if (maVsechno) {
+            for (String idPredmetu : pozadovanePredmety) {
+                hrac.odeberZInventarePodleId(idPredmetu.trim());
+            }
+
+            this.questSplnen = true;
+
+            if (id_odmena != null && !id_odmena.isEmpty()) {
+                Predmet odmena = new Predmet(id_odmena, nazev_odmeny, "");
+                hrac.seberPredmet(odmena);
+                sb.append("(Dostal jsi předmět: ").append(nazev_odmeny).append(")\n");
+            }
 
             sb.append("Jindra: ").append(dialog_hrac_splneno).append("\n");
             sb.append(jmeno).append(": ").append(monolog_splneno);
+
+            if (konec_hry) {
+                sb.append("\n\n--- KONEC HRY ---");
+            }
+
         } else {
-            // NEMÁ PŘEDMĚT -> ZADÁNÍ ÚKOLU
             sb.append("Jindra: ").append(dialog_hrac).append("\n");
             sb.append(jmeno).append(": ").append(monolog);
         }

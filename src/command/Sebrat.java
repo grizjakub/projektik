@@ -3,6 +3,7 @@ package command;
 import hra.Hrac;
 import hra.HerniData;
 import hra.Predmet;
+import hra.Lokace;
 
 public class Sebrat extends Command {
     private String coChciSebrat;
@@ -14,23 +15,31 @@ public class Sebrat extends Command {
 
     @Override
     public String execute() {
-        // 1. Zeptáme se aktuální lokace, jestli nám dá předmět
-        // Metoda 'vezmiPredmet' ho rovnou odstraní z lokace, pokud tam je.
-        Predmet predmet = hrac.getAktualniLokace().vezmiPredmet(coChciSebrat);
+        Lokace aktualniLokace = hrac.getAktualniLokace();
 
-        if (predmet != null) {
-            // 2. Pokud jsme ho dostali, vložíme ho hráči do inventáře
-            hrac.seberPredmet(predmet);
-            return "Sebral jsi: " + predmet.getJmeno();
-        } else {
-            // 3. Pokud v lokaci nebyl
-            return "Předmět '" + coChciSebrat + "' tu nikde nevidím.";
+        Predmet sebranyPredmet = aktualniLokace.vezmiPredmet(coChciSebrat);
+
+        if (sebranyPredmet == null) {
+            return "Predmet '" + coChciSebrat + "' tu nikde nevidim.";
         }
+        if (sebranyPredmet.getId().equals("kytky") || sebranyPredmet.getJmeno().equalsIgnoreCase("Lecive byliny")) {
+            if (hrac.maVInventari("kosik")) {
+                hrac.odeberZInventarePodleId("kosik");
+                Predmet plnyKosik = new Predmet("kosik_bylin", "Kosik plny bylin", "");
+                hrac.seberPredmet(plnyKosik);
+                return "Opatrne jsi natrhal byliny do kosiku. Nyni mas 'Kosik plny bylin'.";
+            } else {
+                aktualniLokace.pridejPredmet(sebranyPredmet);
+
+                return "Nemas je do ceho dat. Potrebujes kosik.";
+            }
+        }
+        hrac.seberPredmet(sebranyPredmet);
+        return "Sebral jsi: " + sebranyPredmet.getJmeno();
     }
 
     @Override
     public boolean odejit() {
         return false;
     }
-
 }

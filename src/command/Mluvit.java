@@ -6,6 +6,7 @@ import hra.Postava;
 
 public class Mluvit extends Command {
     private String sKymMluvit;
+    private boolean hraKonci = false; // Nový přepínač
 
     public Mluvit(Hrac hrac, String sKymMluvit, HerniData herniData) {
         super(hrac, herniData);
@@ -14,12 +15,16 @@ public class Mluvit extends Command {
 
     @Override
     public String execute() {
-        // 1. Najdeme postavu v aktuální místnosti
         Postava postava = hrac.getAktualniLokace().najdiPostavu(sKymMluvit);
 
         if (postava != null) {
-            // 2. Zavoláme chytrou metodu mluvit(), která vrátí celý dialog
-            return postava.mluvit(hrac);
+            String odpoved = postava.mluvit(hrac);
+            // Kontrola, jestli tento rozhovor ukončil hru
+            if (postava.isQuestSplnen() && postava.isKonecHry()) {
+                this.hraKonci = true;
+            }
+
+            return odpoved;
         } else {
             return "Postava '" + sKymMluvit + "' tu není.";
         }
@@ -27,6 +32,6 @@ public class Mluvit extends Command {
 
     @Override
     public boolean odejit() {
-        return false;
+        return hraKonci;
     }
 }

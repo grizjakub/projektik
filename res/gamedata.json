@@ -4,7 +4,7 @@
     {
       "id": "mytina",
       "jmeno": "Mytina",
-      "popis": "Slouzi pro sber bylin",
+      "popis": "Pouze pusto, ale v dáli vidíš louku v údolí, která až překypuje barvami",
       "okolni": ["louka", "byl_chatrc"]
     },
     {
@@ -21,8 +21,8 @@
     },
     {
       "id": "louka",
-      "jmeno": "Louka",
-      "popis": "Slouzi pro sber bylin",
+      "jmeno": "Rozkvetla louka",
+      "popis": "Stojíš uprostřed louky, cítíš vůně, vidíš krásy přírody",
       "okolni": ["mytina", "uhlirska_osada"]
     },
     {
@@ -59,15 +59,27 @@
   "predmety": [
     {
       "id": "kosik",
-      "jmeno": "Kosik",
+      "jmeno": "Prazdny kosik",
       "lokace": "byl_chatrc",
-      "postava": null
+      "postava": ""
+    },
+    {
+      "id": "kytky",
+      "jmeno": "Lecive byliny",
+      "lokace": "louka",
+      "postava": ""
     },
     {
       "id": "kosik_bylin",
-      "jmeno": "Kosik Bylin",
-      "lokace": null,
-      "postava": null
+      "jmeno": "Kosik plny bylin",
+      "lokace": "",
+      "postava": ""
+    },
+    {
+      "id": "dyka",
+      "jmeno": "Lovecká dýka",
+      "lokace": "",
+      "postava": ""
     },
     {
       "id": "jablko",
@@ -100,6 +112,12 @@
       "postava": ""
     },
     {
+      "id": "klobasa",
+      "jmeno": "Dobra klobasa",
+      "lokace": "",
+      "postava": ""
+    },
+    {
       "id": "boty",
       "jmeno": "Stare derave boty",
       "lokace": "rozcesti",
@@ -112,10 +130,15 @@
       "jmeno": "Korenarka Kvetuse",
       "lokace": "byl_chatrc",
       "id_quest_predmetu": "kosik_bylin",
+
+      "id_odmena": "klobasa",
+      "nazev_odmeny": "Dobra klobasa",
+
       "dialog_hrac": "Zdravíčko, bábo. Nevíte, kde bych našel něco cenného?",
-      "monolog": "Ahoj Jindro! Pokud hledáš cennosti, slyšela jsem o kočičím zlatě v jeskyni. Ale nejdřív mi musíš pomoct. Přines mi košík bylin.",
+      "monolog": "Ahoj Jindro! Pokud hledáš cennosti, slyšela jsem o kočičím zlatě. Ale nejdřív mi musíš pomoct. Přines mi košík bylin.",
+
       "dialog_hrac_splneno": "Tady je ten košík, jak jste chtěla.",
-      "monolog_splneno": "Děkuji ti, chlapče! Jak jsem slíbila: jeskyně je na severu, prohledej to tam."
+      "monolog_splneno": "Děkuji ti, chlapče! Jak jsem slíbila: o kočičím zlatě(Pyritu) se pobav s šarlatánem Hubertem, měl by být v jeho támoře, poblíž uhlířské osady.\n A tady máš na cestu jednu poctivou klobásu, ať nemáš hlad."
     },
     {
       "id": "jan",
@@ -131,21 +154,28 @@
       "id": "gerald",
       "jmeno": "Hledac Gerald",
       "lokace": "u_potoka",
-      "id_quest_predmetu": "pivo",
-      "dialog_hrac": "Našel jsi už ve vodě nějaké stříbro?",
-      "monolog": "Pššt! Je tady! Cítím ho! Voda se třpytí! Ale... uff, mám v krku sucho jako na poušti. Přines mi z osady pivo a možná se s tebou rozdělím o svůj nález!",
-      "dialog_hrac_splneno": "Tady máš pivo, Geralde. Na zdraví.",
-      "monolog_splneno": "Ááá, to bodlo! Jsi dobrý chlap. Koukej na tohle! Našel jsem obří kus zlata! Nebo stříbra? To je fuk, je to drahý! Klidně si ten kousek (pyrit) vem, je toho tu plno!"
+      "id_quest_predmetu": "pivo,klobasa",
+
+      "id_odmena": "pyrit",
+      "nazev_odmeny": "Kočičí zlato (Pyrit)",
+
+      "dialog_hrac": "Našel jsi už něco?",
+      "monolog": "Mám hlad a žízeň! Takhle se pracovat nedá. Kdybys mi donesl pivo z osady a nějakou klobásu, možná bych se rozdělil o to, co jsem našel.",
+      "dialog_hrac_splneno": "Tady máš pivo i klobásu. Tak ukaž, co máš.",
+      "monolog_splneno": "Ó, hostina! Díky! Tady, vem si tenhle lesklý kámen. Pro mě nemá cenu, já hledám diamanty!"
     },
     {
       "id": "hubert",
       "jmeno": "Sarlatan Hubert",
       "lokace": "tabor_s_h",
       "id_quest_predmetu": "pyrit",
-      "dialog_hrac": "Co tady děláš schovaný v křoví?",
-      "monolog": "Tiše! Jsem... eh... inkognito. Studuji zdejší magické anomálie. Sháním vzácný 'Aurum Felis', neboli kočičí zlato. Ten blázen Gerald ho prý má u potoka. Přines mi ho a dobře ti zaplatím.",
-      "dialog_hrac_splneno": "Tenhle lesklý kámen jsi chtěl?",
-      "monolog_splneno": "Vynikající! Teda... fascinující vzorek pro mou vědeckou práci. Vesničani za to zaplatí... ehm, věda ti děkuje. Tady máš za odměnu můj speciální lektvar (je to dešťová voda)."
+
+      "konec_hry": true,
+
+      "dialog_hrac": "Mám pro tebe ten kámen?",
+      "monolog": "Zatím nic nevidím. Bez Aurum Felis (kočičího zlata) od Geralda se odsud nedostaneme. Sežeň ho!",
+      "dialog_hrac_splneno": "Mám to! Tady je ten pyrit.",
+      "monolog_splneno": "Vynikající! Ptáčku, vstávej! Máme prostředky na cestu. Jindřichu, jsi zachránce. Jedeme domů!"
     },
     {
       "id": "pesek",
@@ -162,10 +192,15 @@
       "jmeno": "Strazny Vitek",
       "lokace": "byl_chatrc",
       "id_quest_predmetu": "kostky",
+
+      "id_odmena": "dyka",
+      "nazev_odmeny": "Lovecká dýka",
+
       "dialog_hrac": "Hlídáš tu Květuši, aby jí nikdo neukradl bylinky?",
-      "monolog": "Hlídám, hlídám... ale je to nuda k umření. Kdybych tak měl svoje kostky! Včera jsem je prohrál s Hubertem v táboře. Kdybys mi je přinesl zpátky, přimhouřím oko, až budeš něco pytlačit.",
+      "monolog": "Hlídám, hlídám... ale je to nuda k umření. Kdybych tak měl svoje kostky! Včera jsem je prohrál s Hubertem v táboře. Kdybys mi je přinesl zpátky, dám ti svoji starou dýku.",
+
       "dialog_hrac_splneno": "Tvoje kostky. Hubert je 'ztratil' v trávě.",
-      "monolog_splneno": "Paráda! Jindra, ty jsi pašák. Hned si hodím... šestka! Dneska mám štěstí."
+      "monolog_splneno": "Paráda! Jindra, ty jsi pašák. Hned si hodím... šestka! Tady máš tu dýku, snad ti k něčemu bude."
     },
     {
       "id": "lojza",
