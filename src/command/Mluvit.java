@@ -14,12 +14,12 @@ public class Mluvit extends Command {
 
     @Override
     public String execute() {
-        // Zkusíme najít postavu v aktuální místnosti
         Postava postava = hrac.getAktualniLokace().najdiPostavu(sKymMluvit);
 
         if (postava != null) {
-            // Pokud tam je, vrátíme její text
-            return postava.getJmeno() + ": \"" + postava.getMonolog() + "\"";
+            String odpoved = postava.mluvit(hrac);
+
+            return postava.getJmeno() + ": \"" + odpoved + "\"";
         } else {
             return "Postava '" + sKymMluvit + "' tu není.";
         }

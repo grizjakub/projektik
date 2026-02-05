@@ -67,15 +67,19 @@
   "postavy": [
     {
       "id": "kvetuse",
-      "jmeno": "Kořenářka Květuše",
+      "jmeno": "Korensrka Kvetuse",
       "lokace": "byl_chatrc",
-      "monolog": "Ahoj! Pokud hledáš bylinky, podívej se do lesa. Ale pozor na vlky."
+      "monolog": "Ahoj, potřebuji do lektvaru bylinky. Přines mi plný košík, pak ti poradím.",
+      "id_quest_predmetu": "kosik_bylin",
+      "monolog_splneno": "Děkuji ti! Kočičí zlato (pyrit) najdeš v jeskyni za vodopádem."
     },
     {
       "id": "hubert",
-      "jmeno": "Šarlatán Hubert",
+      "jmeno": "Sarlatán Hubert",
       "lokace": "tabor_s_h",
-      "monolog": "Mám elixíry na všechno! I na zlomené srdce, ale ty jsou drahé."
+      "monolog": "Kupujte elixíry!",
+      "id_quest_predmetu": "",
+      "monolog_splneno": ""
     }
   ]
 }

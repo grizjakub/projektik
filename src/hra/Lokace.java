@@ -2,41 +2,63 @@ package hra;
 
 import java.util.ArrayList;
 
-/**
- * Trida slouzisi k nastaveni zakladnich vlastnosti lokalit.
- */
 public class Lokace {
-
     private String id;
     private String jmeno;
     private String popis;
-    private ArrayList<String> okolni;
-    private java.util.ArrayList<Predmet> predmety = new java.util.ArrayList<>();
+    private ArrayList<String> okolni; // ID sousedů z JSONu
+
+    // Inicializace seznamů
+    private ArrayList<Predmet> predmety = new ArrayList<>();
+    private ArrayList<Postava> postavy = new ArrayList<>();
+    private ArrayList<String> jmenaSousedu = new ArrayList<>();
+
+    public Lokace() {
+        this.predmety = new ArrayList<>();
+        this.postavy = new ArrayList<>();
+        this.jmenaSousedu = new ArrayList<>();
+        this.okolni = new ArrayList<>();
+    }
+
+    public Lokace(String id, String jmeno, String popis) {
+        this();
+        this.id = id;
+        this.jmeno = jmeno;
+        this.popis = popis;
+    }
+
+    public String getId() { return id; }
+    public String getJmeno() { return jmeno; }
+    public String getPopis() { return popis; }
+
+    public ArrayList<String> getOkolni() {
+        if (okolni == null) return new ArrayList<>();
+        return okolni;
+    }
 
     public void pridejPredmet(Predmet p) {
+        if (predmety == null) predmety = new ArrayList<>();
         predmety.add(p);
     }
 
     public Predmet vezmiPredmet(String nazev) {
+        if (predmety == null) return null;
         for (Predmet p : predmety) {
             if (p.getJmeno().equalsIgnoreCase(nazev) || p.getId().equalsIgnoreCase(nazev)) {
                 predmety.remove(p);
-                return p; // Vrátíme nalezený předmět
+                return p;
             }
         }
-        return null; // Předmět tu není
+        return null;
     }
 
-    // Seznam postav
-    private java.util.ArrayList<Postava> postavy = new java.util.ArrayList<>();
-
-    // Metoda pro přidání postavy (pro načítání hry)
     public void pridejPostavu(Postava p) {
+        if (postavy == null) postavy = new ArrayList<>();
         postavy.add(p);
     }
 
-    // Metoda pro nalezení postavy podle jména (pro příkaz mluvit)
     public Postava najdiPostavu(String jmeno) {
+        if (postavy == null) return null;
         for (Postava p : postavy) {
             if (p.getJmeno().equalsIgnoreCase(jmeno) || p.getId().equalsIgnoreCase(jmeno)) {
                 return p;
@@ -45,36 +67,29 @@ public class Lokace {
         return null;
     }
 
-    // Uprav metodu toString(), aby vypisovala i předměty v místnosti
+    public void pridejJmenoSouseda(String jmenoSouseda) {
+        if (jmenaSousedu == null) jmenaSousedu = new ArrayList<>();
+        jmenaSousedu.add(jmenoSouseda);
+    }
+
     @Override
     public String toString() {
-        String vypis = "Lokace: " + id + "\nPopis: " + popis;
+        String vypis = "Lokace: " + jmeno + "\nPopis: " + popis;
 
-        // Výpis předmětů
-        if (!predmety.isEmpty()) vypis += "\nPředměty: " + predmety;
+        if (predmety != null && !predmety.isEmpty()) {
+            vypis += "\nVidíš zde: " + predmety.toString();
+        }
 
-        // Výpis postav
-        if (!postavy.isEmpty()) vypis += "\nPostavy: " + postavy;
+        if (postavy != null && !postavy.isEmpty()) {
+            vypis += "\nPostavy: " + postavy.toString();
+        }
 
-        vypis += "\nVýchody: " + okolni;
+        if (jmenaSousedu != null && !jmenaSousedu.isEmpty()) {
+            vypis += "\nVýchody: " + jmenaSousedu.toString();
+        } else if (okolni != null) {
+            vypis += "\nVýchody (ID): " + okolni.toString();
+        }
+
         return vypis;
     }
-
-
-    public String getId() {
-        return id;
-    }
-
-    public String getJmeno() {
-        return jmeno;
-    }
-
-    public String getPopis() {
-        return popis;
-    }
-    public ArrayList<String> getOkolni(){
-        return okolni;
-    }
-
 }
-

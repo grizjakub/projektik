@@ -8,73 +8,68 @@ import java.util.ArrayList;
 public class HerniData {
     private ArrayList<Lokace> lokace;
     private ArrayList<Predmet> predmety;
-    // Přidáme seznam pro postavy (název proměnné musí sedět s JSON klíčem!)
     private ArrayList<Postava> postavy;
 
     public static HerniData nactiHerniDataZRes(String resourcePath) {
         Gson gson = new Gson();
         try (Reader reader = new FileReader(resourcePath)) {
-
-            // 1. Nejdříve načteme "surová" data z JSONu
             HerniData data = gson.fromJson(reader, HerniData.class);
 
-            // 2. Teď musíme předměty fyzicky vložit do lokací
             if (data.predmety != null) data.inicializujPredmety();
-
             if (data.postavy != null) data.inicializujPostavy();
+            if (data.lokace != null) data.inicializujJmenavychodu();
 
             return data;
-
         } catch (Exception e) {
+            // Tady se vypisoval ten Error, teď by to mělo projít
             throw new RuntimeException("Chyba při načítání JSON: " + e.getMessage());
         }
     }
 
-    // Nová metoda pro rozřazení postav
-    private void inicializujPostavy() {
-        for (Postava p : postavy) {
-            String kamPatriId = p.getLokaceId();
-            if (kamPatriId != null) {
-                Lokace lokace = najdiLokaciPodleId(kamPatriId);
-                if (lokace != null) {
-                    lokace.pridejPostavu(p);
+    private void inicializujJmenavychodu() {
+        for (Lokace aktualni : lokace) {
+            if (aktualni.getOkolni() != null) {
+                for (String idSouseda : aktualni.getOkolni()) {
+                    Lokace soused = najdiLokaciPodleId(idSouseda);
+                    if (soused != null) {
+                        // Voláme metodu, kterou jsme přidali do Lokace.java
+                        aktualni.pridejJmenoSouseda(soused.getJmeno());
+                    }
                 }
             }
         }
     }
 
-    // Pomocná metoda, která projde předměty a dá je tam, kam patří
     private void inicializujPredmety() {
         for (Predmet p : predmety) {
-            String kamPatriId = p.getLokaceId(); // Získáme ID lokace (např. "tabor_s_h")
-
-            // Pokud má předmět určenou lokaci (není null)
-            if (kamPatriId != null && !kamPatriId.isEmpty()) {
-                Lokace lokaceKamPatri = najdiLokaciPodleId(kamPatriId);
-
-                if (lokaceKamPatri != null) {
-                    lokaceKamPatri.pridejPredmet(p); // <-- TADY SE PŘEDMĚT VLOŽÍ DO MÍSTNOSTI
-                }
+            if (p.getLokaceId() != null) {
+                Lokace l = najdiLokaciPodleId(p.getLokaceId());
+                if (l != null) l.pridejPredmet(p);
             }
         }
     }
 
-    // Pomocná metoda pro hledání lokace uvnitř tohoto objektu
-    private Lokace najdiLokaciPodleId(String id) {
-        for (Lokace l : lokace) {
-            if (l.getId().equals(id)) {
-                return l;
+    private void inicializujPostavy() {
+        for (Postava p : postavy) {
+            if (p.getLokaceId() != null) {
+                Lokace l = najdiLokaciPodleId(p.getLokaceId());
+                if (l != null) l.pridejPostavu(p);
             }
+        }
+    }
+
+    public Lokace najdiLokaciPodleId(String id) {
+        if (lokace == null) return null;
+        for (Lokace l : lokace) {
+            if (l.getId().equals(id)) return l;
         }
         return null;
     }
 
-    // Tvoje stávající metody...
     public boolean najdiLokaci(String jmeno) {
+        if (lokace == null) return false;
         for (Lokace l : lokace) {
-            if (l.getJmeno().equals(jmeno)){
-                return true;
-            }
+            if (l.getJmeno().equals(jmeno)) return true;
         }
         return false;
     }

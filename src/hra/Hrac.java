@@ -25,6 +25,20 @@ public class Hrac {
         return "V inventáři máš: " + inventar.toString();
     }
 
+    public boolean maVInventari(String idNeboJmenoPredmetu) {
+        for (Predmet p : inventar) {
+            if (p.getId().equalsIgnoreCase(idNeboJmenoPredmetu) ||
+                    p.getJmeno().equalsIgnoreCase(idNeboJmenoPredmetu)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void odeberZInventarePodleId(String id) {
+        inventar.removeIf(p -> p.getId().equalsIgnoreCase(id));
+    }
+
     public Lokace getAktualniLokace() {
         return aktualniLokace;
     }
