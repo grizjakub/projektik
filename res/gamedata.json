@@ -58,28 +58,64 @@
       "postava": null
     },
     {
-      "id": "pyrit",
-      "jmeno": "Pyrit",
+      "id": "jablko",
+      "jmeno": "Červené jablko",
+      "lokace": "rozcesti",
+      "postava": ""
+    },
+    {
+      "id": "pivo",
+      "jmeno": "Korbel piva",
       "lokace": "uhlirska_osada",
+      "postava": ""
+    },
+    {
+      "id": "pyrit",
+      "jmeno": "Kočičí zlato (Pyrit)",
+      "lokace": "potok",
       "postava": ""
     }
   ],
   "postavy": [
     {
       "id": "kvetuse",
-      "jmeno": "Korensrka Kvetuse",
+      "jmeno": "Kořenářka Květuše",
       "lokace": "byl_chatrc",
-      "monolog": "Ahoj, potřebuji do lektvaru bylinky. Přines mi plný košík, pak ti poradím.",
       "id_quest_predmetu": "kosik_bylin",
-      "monolog_splneno": "Děkuji ti! Kočičí zlato (pyrit) najdeš v jeskyni za vodopádem."
+      "dialog_hrac": "Zdravíčko, bábo. Nevíte, kde bych našel něco cenného?",
+      "monolog": "Ahoj Jindro! Pokud hledáš cennosti, slyšela jsem o kočičím zlatě v jeskyni. Ale nejdřív mi musíš pomoct. Přines mi košík bylin.",
+      "dialog_hrac_splneno": "Tady je ten košík, jak jste chtěla.",
+      "monolog_splneno": "Děkuji ti, chlapče! Jak jsem slíbila: jeskyně je na severu, prohledej to tam."
+    },
+    {
+      "id": "jan",
+      "jmeno": "Jan Ptáček z Lipé",
+      "lokace": "rozcesti",
+      "id_quest_predmetu": "jablko",
+      "dialog_hrac": "Jak to zvládáš, pane? Vypadáš... nespokojeně.",
+      "monolog": "Nespokojeně?! To je slabé slovo! Podívej se na mé boty, jsou celé od bláta! A mám hlad, že mi kručí v břiše jako v kovárně. Sežeň mi okamžitě jablko, než tě nechám zbičovat!",
+      "dialog_hrac_splneno": "Našel jsem jedno jablko, pane. Tady je.",
+      "monolog_splneno": "Konečně! Je sice malé a kyselé, přesně jako tvůj intelekt, Jindro, ale postačí to. Tak nečum a jdeme dál, nerad čekám."
+    },
+    {
+      "id": "gerald",
+      "jmeno": "Hledač Gerald",
+      "lokace": "u_potoka",
+      "id_quest_predmetu": "pivo",
+      "dialog_hrac": "Našel jsi už ve vodě nějaké stříbro?",
+      "monolog": "Pššt! Je tady! Cítím ho! Voda se třpytí! Ale... uff, mám v krku sucho jako na poušti. Přines mi z osady pivo a možná se s tebou rozdělím o svůj nález!",
+      "dialog_hrac_splneno": "Tady máš pivo, Geralde. Na zdraví.",
+      "monolog_splneno": "Ááá, to bodlo! Jsi dobrý chlap. Koukej na tohle! Našel jsem obří kus zlata! Nebo stříbra? To je fuk, je to drahý! Klidně si ten kousek (pyrit) vem, je toho tu plno!"
     },
     {
       "id": "hubert",
-      "jmeno": "Sarlatán Hubert",
+      "jmeno": "Šarlatán Hubert",
       "lokace": "tabor_s_h",
-      "monolog": "Kupujte elixíry!",
-      "id_quest_predmetu": "",
-      "monolog_splneno": ""
+      "id_quest_predmetu": "pyrit",
+      "dialog_hrac": "Co tady děláš schovaný v křoví?",
+      "monolog": "Tiše! Jsem... eh... inkognito. Studuji zdejší magické anomálie. Sháním vzácný 'Aurum Felis', neboli kočičí zlato. Ten blázen Gerald ho prý má u potoka. Přines mi ho a dobře ti zaplatím.",
+      "dialog_hrac_splneno": "Tenhle lesklý kámen jsi chtěl?",
+      "monolog_splneno": "Vynikající! Teda... fascinující vzorek pro mou vědeckou práci. Vesničani za to zaplatí... ehm, věda ti děkuje. Tady máš za odměnu můj speciální lektvar (je to dešťová voda)."
     }
   ]
 }
