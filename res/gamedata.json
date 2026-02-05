@@ -5,7 +5,7 @@
       "id": "mytina",
       "jmeno": "Mytina",
       "popis": "Slouzi pro sber bylin",
-      "okolni": ["louka", "byl_chatrc", ""]
+      "okolni": ["louka", "byl_chatrc"]
     },
     {
       "id": "tabor_s_h",
@@ -29,7 +29,7 @@
       "id": "rozcesti",
       "jmeno": "Rozcesti",
       "popis": "Prvni lokace a první rozhodování o směru.",
-      "okolni": ["uhlirska_osada", "byl_chatrc"]
+      "okolni": ["uhlirska_osada", "byl_chatrc", "u_potoka"]
     },
     {
       "id": "jeskyne",
@@ -38,10 +38,22 @@
       "okolni": ["tabor_s_h"]
     },
     {
+      "id": "u_potoka",
+      "jmeno": "Potok u lesa",
+      "popis": "Klidný potok bublající na kraji hvozdu. Voda je průzračná, ale břehy jsou rozdupané, jako by tu někdo něco zběsile hledal. Cesta podél vody vede dál ke starému mlýnu.",
+      "okolni": ["rozcesti", "mlyn"]
+    },
+    {
       "id": "byl_chatrc",
       "jmeno": "Bylinkarska chatrc",
       "popis": "Potkani s Kvetusi",
       "okolni": ["rozcesti", "mytina"]
+    },
+    {
+      "id": "mlyn",
+      "jmeno": "Stary mlyn",
+      "popis": "Rozvrzaný dřevěný mlýn. Kolo se netočí a všude je cítit zatuchlá mouka. Vypadá to, že mlynář má potíže.",
+      "okolni": ["u_potoka"]
     }
   ],
   "predmety": [
@@ -59,7 +71,7 @@
     },
     {
       "id": "jablko",
-      "jmeno": "Červené jablko",
+      "jmeno": "Cervene jablko",
       "lokace": "rozcesti",
       "postava": ""
     },
@@ -71,15 +83,33 @@
     },
     {
       "id": "pyrit",
-      "jmeno": "Kočičí zlato (Pyrit)",
+      "jmeno": "Pyrit",
       "lokace": "potok",
+      "postava": ""
+    },
+    {
+      "id": "luj",
+      "jmeno": "Hrouda loje",
+      "lokace": "uhlirska_osada",
+      "postava": ""
+    },
+    {
+      "id": "kostky",
+      "jmeno": "Hraci kostky",
+      "lokace": "tabor_s_h",
+      "postava": ""
+    },
+    {
+      "id": "boty",
+      "jmeno": "Stare derave boty",
+      "lokace": "rozcesti",
       "postava": ""
     }
   ],
   "postavy": [
     {
       "id": "kvetuse",
-      "jmeno": "Kořenářka Květuše",
+      "jmeno": "Korenarka Kvetuse",
       "lokace": "byl_chatrc",
       "id_quest_predmetu": "kosik_bylin",
       "dialog_hrac": "Zdravíčko, bábo. Nevíte, kde bych našel něco cenného?",
@@ -89,7 +119,7 @@
     },
     {
       "id": "jan",
-      "jmeno": "Jan Ptáček z Lipé",
+      "jmeno": "Jan Ptacek z Lipe",
       "lokace": "rozcesti",
       "id_quest_predmetu": "jablko",
       "dialog_hrac": "Jak to zvládáš, pane? Vypadáš... nespokojeně.",
@@ -99,7 +129,7 @@
     },
     {
       "id": "gerald",
-      "jmeno": "Hledač Gerald",
+      "jmeno": "Hledac Gerald",
       "lokace": "u_potoka",
       "id_quest_predmetu": "pivo",
       "dialog_hrac": "Našel jsi už ve vodě nějaké stříbro?",
@@ -109,13 +139,43 @@
     },
     {
       "id": "hubert",
-      "jmeno": "Šarlatán Hubert",
+      "jmeno": "Sarlatan Hubert",
       "lokace": "tabor_s_h",
       "id_quest_predmetu": "pyrit",
       "dialog_hrac": "Co tady děláš schovaný v křoví?",
       "monolog": "Tiše! Jsem... eh... inkognito. Studuji zdejší magické anomálie. Sháním vzácný 'Aurum Felis', neboli kočičí zlato. Ten blázen Gerald ho prý má u potoka. Přines mi ho a dobře ti zaplatím.",
       "dialog_hrac_splneno": "Tenhle lesklý kámen jsi chtěl?",
       "monolog_splneno": "Vynikající! Teda... fascinující vzorek pro mou vědeckou práci. Vesničani za to zaplatí... ehm, věda ti děkuje. Tady máš za odměnu můj speciální lektvar (je to dešťová voda)."
+    },
+    {
+      "id": "pesek",
+      "jmeno": "Mlynar Pesek",
+      "lokace": "mlyn",
+      "id_quest_predmetu": "luj",
+      "dialog_hrac": "Mlynáři! Proč se netočí kolo? Potřebuju semlít obilí.",
+      "monolog": "Kolo stojí, protože se zadřela hřídel! Ten mizerný pacholek mi měl donést z osady lůj na promazání, ale utekl. Pokud chceš mouku, sežeň mi hroudu loje. A to hned!",
+      "dialog_hrac_splneno": "Našel jsem u uhlířů tenhle lůj. Smrdí, ale bude fungovat.",
+      "monolog_splneno": "Dej to sem! Konečně se to hne. Jsi užitečnější než ten můj pacholek. Tady máš za odměnu pytlík mouky, upeč si placky."
+    },
+    {
+      "id": "vitek",
+      "jmeno": "Strazny Vitek",
+      "lokace": "byl_chatrc",
+      "id_quest_predmetu": "kostky",
+      "dialog_hrac": "Hlídáš tu Květuši, aby jí nikdo neukradl bylinky?",
+      "monolog": "Hlídám, hlídám... ale je to nuda k umření. Kdybych tak měl svoje kostky! Včera jsem je prohrál s Hubertem v táboře. Kdybys mi je přinesl zpátky, přimhouřím oko, až budeš něco pytlačit.",
+      "dialog_hrac_splneno": "Tvoje kostky. Hubert je 'ztratil' v trávě.",
+      "monolog_splneno": "Paráda! Jindra, ty jsi pašák. Hned si hodím... šestka! Dneska mám štěstí."
+    },
+    {
+      "id": "lojza",
+      "jmeno": "Zebrak Lojza",
+      "lokace": "uhlirska_osada",
+      "id_quest_predmetu": "boty",
+      "dialog_hrac": "Co se ti stalo, chlape?",
+      "monolog": "Zima, Jindro, zima jde... A podívej na moje nohy. Bosé a rozedřené do krve. Kdybych tak měl aspoň nějaké boty. Klidně staré, děravé... cokoliv, jen ať nestojím v blátě.",
+      "dialog_hrac_splneno": "Našel jsem tyhle staré křusky. Lepší než nic.",
+      "monolog_splneno": "Bůh ti žehnej, Jindřichu! Jsou jako ulité. Teď už mi prsty neumrznou. Budu se za tebe modlit."
     }
   ]
 }
