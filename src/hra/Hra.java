@@ -52,6 +52,9 @@ public class Hra {
             String vstup = sc.nextLine();
             return new Mluvit(hrac, vstup, svet);
         });
+        commands.put("pomoc", () -> new Pomoc(hrac, svet));
+        commands.put("konec", () -> new Konec(hrac, svet));
+
     }
 
     /**

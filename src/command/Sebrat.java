@@ -30,6 +30,7 @@ public class Sebrat extends Command {
 
     @Override
     public boolean odejit() {
-        return false; // Hra po sebrání nekončí
+        return false;
     }
+
 }
