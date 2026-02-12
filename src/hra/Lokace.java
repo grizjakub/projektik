@@ -9,9 +9,9 @@ public class Lokace {
     private ArrayList<String> okolni; // ID sousedů z JSONu
 
     // Inicializace seznamů
-    private ArrayList<Predmet> predmety = new ArrayList<>();
-    private ArrayList<Postava> postavy = new ArrayList<>();
-    private ArrayList<String> jmenaSousedu = new ArrayList<>();
+    private ArrayList<Predmet> predmety;
+    private ArrayList<Postava> postavy;
+    private ArrayList<String> jmenaSousedu;
 
     public Lokace() {
         this.predmety = new ArrayList<>();
@@ -46,6 +46,16 @@ public class Lokace {
         for (Predmet p : predmety) {
             if (p.getJmeno().equalsIgnoreCase(nazev) || p.getId().equalsIgnoreCase(nazev)) {
                 predmety.remove(p);
+                return p;
+            }
+        }
+        return null;
+    }
+
+    // Metoda pro testování a hledání (předmět jen vrátí, ale NEODSTRANÍ z místnosti)
+    public Predmet najdiPredmet(String nazev) {
+        for (Predmet p : predmety) {
+            if (p.getJmeno().equalsIgnoreCase(nazev) || p.getId().equalsIgnoreCase(nazev)) {
                 return p;
             }
         }
