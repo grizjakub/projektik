@@ -18,7 +18,7 @@ public class Pohyb extends Command {
     /**
      * Metoda na urceni urceni nabidky cestovani a informovani o aktualni lokalite.
      * @return aktualni mistnost, jeji popis a sousedni lokace,
-     * v pripade, ze lokalita neni v dosahu nebo neexistuje tak o tom informuje.
+     * v pripade ze lokalita neni v dosahu nebo neexistuje tak o tom informuje.
      */
     @Override
     public String execute() {

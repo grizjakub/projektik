@@ -3,12 +3,19 @@ package command;
 import hra.Hrac;
 import hra.HerniData;
 
+/**
+ * Trida slouzi jako prikaz pomoc
+ */
 public class Pomoc extends Command {
 
     public Pomoc(Hrac hrac, HerniData herniData) {
         super(hrac, herniData);
     }
 
+    /**
+     * Metoda slouzici k vypsani moznych prikazu.
+     * @return
+     */
     @Override
     public String execute() {
         return "---------------- NÁPOVĚDA ----------------\n" +

@@ -4,7 +4,7 @@ import hra.HerniData;
 import hra.Hrac;
 
 /**
- * Trida slouzici k ukladani specifickych predmetu.
+ * Trida slouzici pouze jako command pro zobrazeni inventare
  */
 public class Inventar extends Command{
 

@@ -1,5 +1,9 @@
 package hra;
 
+/**
+ * Trida Predmet predstavuje veci, ktere se vyskytuji v hernim svete.
+ * Predmety mohou lezet v lokacich nebo byt neseny hracem v inventari.
+ */
 public class Predmet {
     private String id;
     private String jmeno;

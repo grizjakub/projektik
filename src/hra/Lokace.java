@@ -2,16 +2,20 @@ package hra;
 
 import java.util.ArrayList;
 
+/**
+ * Trida Lokace predstavuje jednu mistnost (nebo oblast) v hernim svete.
+ * Uchovava informace o predmetech, postavach a sousednich lokacich.
+ */
 public class Lokace {
+
     private String id;
     private String jmeno;
     private String popis;
-    private ArrayList<String> okolni; // ID sousedů z JSONu
+    private ArrayList<String> okolni;
 
-    // Inicializace seznamů
-    private ArrayList<Predmet> predmety;
-    private ArrayList<Postava> postavy;
-    private ArrayList<String> jmenaSousedu;
+    private ArrayList<Predmet> predmety = new ArrayList<>();
+    private ArrayList<Postava> postavy = new ArrayList<>();
+    private ArrayList<String> jmenaSousedu = new ArrayList<>();
 
     public Lokace() {
         this.predmety = new ArrayList<>();
@@ -41,6 +45,12 @@ public class Lokace {
         predmety.add(p);
     }
 
+    /**
+     * Pokusi se najit predmet podle nazvu a odebrat ho z lokace.
+     * Pouziva se, kdyz hrac sbira predmet.
+     * @param nazev Nazev nebo ID hledaneho predmetu
+     * @return Nalezeny Predmet, nebo null pokud v lokaci neni
+     */
     public Predmet vezmiPredmet(String nazev) {
         if (predmety == null) return null;
         for (Predmet p : predmety) {
@@ -52,8 +62,14 @@ public class Lokace {
         return null;
     }
 
-    // Metoda pro testování a hledání (předmět jen vrátí, ale NEODSTRANÍ z místnosti)
+    /**
+     * Najde predmet v lokaci a vrati ho.
+     * Slouzi pro testovani nebo pro kontrolu, co v mistnosti je.
+     * @param nazev Nazev nebo ID predmetu
+     * @return Nalezeny Predmet nebo null
+     */
     public Predmet najdiPredmet(String nazev) {
+        if (predmety == null) return null;
         for (Predmet p : predmety) {
             if (p.getJmeno().equalsIgnoreCase(nazev) || p.getId().equalsIgnoreCase(nazev)) {
                 return p;
@@ -67,6 +83,11 @@ public class Lokace {
         postavy.add(p);
     }
 
+    /**
+     * Najde postavu v lokaci podle jmena nebo ID.
+     * @param jmeno Jmeno nebo ID postavy
+     * @return Nalezena Postava nebo null
+     */
     public Postava najdiPostavu(String jmeno) {
         if (postavy == null) return null;
         for (Postava p : postavy) {
@@ -82,12 +103,16 @@ public class Lokace {
         jmenaSousedu.add(jmenoSouseda);
     }
 
+    /**
+     * Vrati textovy popis lokace vcetne obsahu a vychodu.
+     * @return Zformatovany retezec s informacemi
+     */
     @Override
     public String toString() {
         String vypis = "Lokace: " + jmeno + "\nPopis: " + popis;
 
         if (predmety != null && !predmety.isEmpty()) {
-            vypis += "\nVidíš zde: " + predmety.toString();
+            vypis += "\nVidis zde: " + predmety.toString();
         }
 
         if (postavy != null && !postavy.isEmpty()) {
@@ -95,9 +120,9 @@ public class Lokace {
         }
 
         if (jmenaSousedu != null && !jmenaSousedu.isEmpty()) {
-            vypis += "\nVýchody: " + jmenaSousedu.toString();
+            vypis += "\nVychody: " + jmenaSousedu.toString();
         } else if (okolni != null) {
-            vypis += "\nVýchody (ID): " + okolni.toString();
+            vypis += "\nVychody (ID): " + okolni.toString();
         }
 
         return vypis;

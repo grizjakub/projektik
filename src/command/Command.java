@@ -17,7 +17,6 @@ public abstract class Command {
         this.herniData = herniData;
     }
 
-        // Metoda na otevreni nabidky cesty.
     public abstract String execute();
     public abstract boolean odejit();
 
