@@ -1,4 +1,3 @@
-package test;
 
 import hra.Lokace;
 import hra.Predmet;

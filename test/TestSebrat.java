@@ -1,4 +1,3 @@
-package test;
 
 import command.Sebrat;
 import hra.Hrac;

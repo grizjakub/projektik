@@ -1,4 +1,3 @@
-package test;
 
 import hra.Hrac;
 import hra.Lokace;
