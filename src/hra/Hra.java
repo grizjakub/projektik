@@ -22,6 +22,7 @@ public class Hra {
      */
     public void inicializace(){
         this.opusit = false;
+        vypisUvitani();
         this.sc = new Scanner(System.in);
         commands = new HashMap<>();
         svet = HerniData.nactiHerniDataZRes("res/gamedata.json");
@@ -72,6 +73,24 @@ public class Hra {
             }else
                 System.out.println("Příkaz " + prikaz + " neexistuje");
         }
+    }
+
+    /**
+     * Vypise uvodni text a pribeh hry.
+     */
+    private void vypisUvitani() {
+        System.out.println("=========================================================");
+        System.out.println("                       NA LOVU");
+        System.out.println("=========================================================");
+        System.out.println("Vitej ve hre Na Lovu!");
+        System.out.println("Jsi Jindrich, ochrance slechtice pana Ptacka, ztraceny v hlubokem lese. Tvym jedinym");
+        System.out.println("cilem je dostat se zpet do civilizace.");
+        System.out.println();
+        System.out.println("Prozkoumej okoli, pomoz mistnim obyvatelum a ziskej to,");
+        System.out.println("co potrebujes k ceste domu.");
+        System.out.println();
+        System.out.println("Napis 'pomoc' pro zobrazeni seznamu prikazu.");
+        System.out.println("=========================================================\n");
     }
 
     /**
